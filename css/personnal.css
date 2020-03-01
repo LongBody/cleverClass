@@ -1,0 +1,107 @@
+.banner {
+    background-image: url('../images/personal-page.jpg');
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center center;
+    padding: 15px;
+}
+
+.banner-content i {
+    margin-right: 15px;
+    font-size: 28px;
+    vertical-align: middle;
+    color: rgba(110, 164, 202, 1)
+}
+
+.banner-content .account {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.banner-content {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.my-class-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 320px;
+}
+
+.my-class-contain {
+    width: 61%;
+    margin: 25px auto;
+}
+
+.my-class-title {
+    font-size: 28px;
+    color: white;
+    text-shadow: rgb(61, 61, 61) 0 0px 1px;
+}
+
+.add-class {
+    color: rgb(17, 118, 201);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.class-item,
+.add-class {
+    padding: 15px;
+    margin: 20px 0px;
+    box-shadow: rgb(61, 61, 61) 0 1px 2px;
+    height: 200px;
+    width: 285px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.class-item-content p {
+    color: gray;
+    font-size: 15px;
+}
+
+
+/* form thêm lớp học */
+
+.create-class-form-wrapper {
+    padding-left: 50px;
+    display: none;
+    animation: transitionIn 0.95s;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: rotateY(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotateY(0);
+    }
+}
+
+.create-class-form {
+    min-width: 400px;
+    max-width: 800px;
+    width: 40%;
+    padding: 20px;
+}
+
+.create-class-form h1 {
+    font-size: 30px;
+}
+
+.create-class-form-wrapper .aside-right {
+    background-image: url('../images/personal-page.jpg');
+    background-size: cover;
+    background-position: center right;
+    height: 100vh;
+    min-width: 300px;
+    width: 40%;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+}

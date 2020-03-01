@@ -1,0 +1,449 @@
+.myImage {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
+
+/* .container-fluid {
+    height: 100vh
+} */
+
+.show-info {
+    display: inline-block;
+    position: relative;
+}
+
+.none {
+    display: none;
+}
+
+.your>.show-info:hover .none {
+    display: block;
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    right: 30px;
+    border: 1px solid black;
+    background-color: #000000;
+    color: #eae9ea;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.other>.show-info:hover .none {
+    display: block;
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    left: 28px;
+    border: 1px solid black;
+    background-color: #000000;
+    color: #eae9ea;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.message span {
+    display: inline-block;
+    max-width: 65%;
+    padding: 8px;
+    border: 1px solid #4481fe;
+    border-radius: 5px;
+    color: #4481fe;
+    word-break: break-word;
+}
+
+.list-message {
+    padding: 10px;
+    height: calc(100% - 75px);
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.chat-container {
+    width: 30%;
+    height: calc(100vh - 95px);
+    display: flex;
+}
+
+.current-conversation {
+    width: 100%;
+}
+
+.form-add-message {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.list-message>* {
+    margin-bottom: 10px;
+}
+
+.your {
+    text-align: right;
+}
+
+.setting {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user {
+    display: flex;
+}
+
+.fa-cog {
+    font-size: 20px;
+}
+
+.list-conversation {
+    min-height: 100px;
+    max-height: 60%;
+    overflow-y: scroll;
+}
+
+.conversation-icon-group {
+    padding-right: 10px;
+}
+
+.conversation-title {
+    font-weight: 200;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 30px;
+    margin-left: 15px;
+}
+
+.conversation :hover {
+    background-color: gainsboro;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.conversation {
+    width: 100%;
+}
+
+.conversation.current {
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+
+.conversation-member {
+    font-size: 12;
+    text-align: right;
+    font-style: italic;
+}
+
+.conversation-member-right {
+    font-size: 15;
+    display: block;
+    font-weight: 500;
+    padding: 5px;
+}
+
+
+/* .list-conversation {
+    margin-left: 10px;
+} */
+
+.form-add-conversation>* {
+    margin-bottom: 10px;
+}
+
+.current-conversation {
+    width: 100%;
+    height: 100%;
+}
+
+.social-media {
+    width: 100%;
+    height: calc(100vh - 100px);
+    padding: 10px;
+    display: flex;
+}
+
+.card-info {
+    background-color: #ffffff ! important;
+    height: 330px;
+}
+
+.card-conversation {
+    margin-top: 20px;
+}
+
+.card-interested {
+    margin-top: 15px;
+}
+
+.interested {
+    border: 1px solid;
+    padding: 5px;
+    background-color: gainsboro;
+    font-size: 13px;
+}
+
+.my-profile {
+    font-family: "Open Sans", sans-serif;
+}
+
+.avatar-member {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.information-user {
+    color: rgb(136, 132, 132);
+}
+
+.information-user>.fas {
+    width: 20px;
+    height: 15px;
+}
+
+.card-img-top {
+    border-radius: 50%;
+    height: 106px;
+    width: 106px;
+}
+
+.card-img-top-post-view {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    padding: 10px;
+}
+
+.avatar-social {
+    display: flex;
+    justify-content: center;
+}
+
+.card-show-info-user {
+    padding-left: 5px;
+}
+
+.card-social-post {
+    height: calc(100% + 17px);
+    width: 100%;
+    margin-left: 15px;
+    overflow-y: scroll;
+}
+
+.post-view {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-post {
+    height: 100px;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-btn {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.fa-images {
+    font-size: 30px;
+    padding: 5px;
+    color: rgb(125, 180, 15)
+}
+
+.upload-image {
+    display: flex;
+}
+
+.input-post::placeholder {
+    font-size: 30px;
+    margin-bottom: 200px;
+}
+
+.state-friend {
+    width: 20%;
+    height: calc(100vh - 100px);
+    overflow-y: scroll;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-user {
+    height: 30px;
+    border-radius: 50%;
+}
+
+.avatar-user-cmt {
+    height: 30px;
+    border-radius: 50%;
+}
+
+.visibleClass {
+    visibility: hidden;
+}
+
+.user-name {
+    font-size: 13px;
+    font-family: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.personal:hover {
+    background-color: rgb(236, 232, 232);
+    border-radius: 10px;
+}
+
+.user {
+    padding: 10px;
+    display: inline-block;
+}
+
+.info-personal {
+    display: inline-block;
+    width: 90%;
+}
+
+.user div {
+    padding: 5px;
+}
+
+.status {
+    width: 10px;
+    height: 10px;
+    justify-content: flex-end;
+}
+
+.previewImage {
+    display: none;
+}
+
+.message-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nav-post {
+    display: flex
+}
+
+.nav-name {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.loader {
+    border: 7px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 7px solid #555;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+
+/* Safari */
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.time-post {
+    font-size: 12px;
+}
+
+.comment-post {
+    display: flex;
+}
+
+.form-add-comment-post {
+    height: 37px;
+}
+
+.form-add-comment-post::placeholder {
+    opacity: 0.7;
+}
+
+.form-add-comment {
+    width: 100%;
+}
+
+.form-search {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .aside-left-chat {
+        display: none;
+    }
+    .state-friend {
+        display: none;
+    }
+    .card-social-post {
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .aside-left-chat {
+        display: none;
+    }
+    .avatar-user {
+        height: 20px;
+        width: 20px;
+    }
+    .state-friend {
+        width: 70%;
+        height: calc(100vh - 100px);
+        overflow-y: scroll;
+    }
+    .card-social-post {
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .aside-left-chat {
+        display: none;
+    }
+    .avatar-user {
+        height: 20px;
+        width: 20px;
+    }
+    .state-friend {
+        width: 40%;
+        height: calc(100vh - 100px);
+        overflow-y: scroll;
+    }
+    .card-social-post {
+        margin-left: 0px;
+    }
+}

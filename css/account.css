@@ -1,0 +1,11 @@
+.btn.btn-delete {
+    background-color: red;
+}
+
+.btn.btn-cancel {
+    background-color: rgb(55, 55, 253);
+}
+
+body {
+    padding-right: 0 !important
+}

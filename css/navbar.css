@@ -1,0 +1,49 @@
+.change-info-form {
+    width: 80%;
+    padding: 0 25px;
+    box-shadow: 0 0 4px grey;
+    border-radius: 5px;
+    margin: 50px auto;
+}
+
+.header-notes h1 {
+    font-size: 25px;
+}
+
+.notes {
+    font-size: 14px;
+    color: rgb(155, 155, 155);
+}
+
+.form-header,
+.change-avatar,
+.change-personal-info,
+.change-password,
+.form-footer {
+    border-bottom: solid 1px rgb(194, 193, 193);
+    padding: 30px 0;
+}
+
+.form-body .change-avatar .your-ava {
+    width: 80px;
+    height: 80px;
+    background-image: url('../bob\ tỉa\ layer.jpg');
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
+    border: solid 1px rgb(209, 207, 207);
+}
+
+.change-avatar .ava-notes {
+    width: 50%;
+}
+
+.change-avatar h5,
+.change-personal-info h5,
+.change-password h5 {
+    margin-bottom: 15px;
+}
+
+.form-footer {
+    padding-top: ;
+}

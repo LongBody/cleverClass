@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./images/clever-class.png" type="image/gif">
+    <title>CleverClass - Trang web hỗ trợ học có nền tảng tốt nhất</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Krub|Megrim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Css CleverClass -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/personnal.css">
+    <link rel="stylesheet" href="./css/video.css">
+    <link rel="stylesheet" href="./css/users.css">
+    <link rel="stylesheet" href="./css/classroom.css">
+    <link rel="stylesheet" href="./css/loading.css">
+    <link rel="stylesheet" href="./css/chat.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/account.css">
+
+</head>
+
+<body class="long">
+
+    <div id="my-web" class="app"></div>
+
+    <script src="./js/main.js"></script>
+
+    <!-- Component -->
+    <script src="./components/mainCpn.js"></script>
+    <script src="./components/homeCpn.js"></script>
+    <script src="./components/featureCpn.js"></script>
+    <script src="./components/personalCpn.js"></script>
+    <script src="./components/classroomCpn.js"></script>
+
+    <!-- Models -->
+    <script src="./models/mainModel.js"></script>
+    <script src="./models/updateConvesationModel.js"></script>
+    <script src="./models/classModel.js"></script>
+
+    <!-- Views -->
+    <script src="./views/screenNameViews.js"></script>
+    <script src="./views/authViews.js"></script>
+    <script src="./views/chatViews.js"></script>
+    <script src="./views/validateViews.js"></script>
+    <script src="./views/classroomsViews.js"></script>
+    <script src="./views/navbarViews.js"></script>
+    <script src="./views/accountViews.js"></script>
+    <script src="./views/dataCurrentUserViews.js"></script>
+    <script src="./views/postsViews.js"></script>
+
+    <!-- Controllers -->
+    <script src="./controllers/mainCrl.js"></script>
+    <script src="./controllers/authCtl.js"></script>
+    <script src="./controllers/chatCtl.js"></script>
+    <script src="./controllers/classroomCtl.js"></script>
+    <script src="./controllers/accountCtl.js"></script>
+    <script src="./controllers/facebookSignInCtl.js"></script>
+    <script src="./controllers/postCtl.js"></script>
+
+    <!-- Cdn Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-storage.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCXXTDyqbrrxZ604X8I1gwztw9fTu9wPRo",
+            authDomain: "mindx-c72f4.firebaseapp.com",
+            databaseURL: "https://mindx-c72f4.firebaseio.com",
+            projectId: "mindx-c72f4",
+            storageBucket: "mindx-c72f4.appspot.com",
+            messagingSenderId: "18342363200",
+            appId: "1:18342363200:web:d6b0bf8d74a34a3761dfa5",
+            measurementId: "G-DKG4FR41RV"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Facebook SDK -->
+
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '762958127446675',
+                cookie: true,
+                xfbml: true,
+                version: 'v6.0'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                xfbml: true,
+                version: 'v6.0'
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat" attribution=setup_tool page_id="102185334729687">
+    </div>
+
+
+
+    <!-- Cdn Jquery and Boostraps -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

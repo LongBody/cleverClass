@@ -1,0 +1,167 @@
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.aside-left {
+    width: 250px;
+    height: 100vh;
+    background-image: url('../images/aside-left-classroom.jpg');
+    background-size: cover;
+    background-position: center center;
+    color: rgb(223, 223, 223);
+    font-size: 15px;
+    float: left;
+}
+
+.aside-left .nav {
+    border-top: solid 1px rgb(184, 182, 182);
+    border-bottom: solid 1px rgb(184, 182, 182);
+    padding: 10px;
+    background-color: rgb(4, 12, 41);
+}
+
+.aside-left .my-home {
+    color: rgb(223, 223, 223);
+}
+
+.my-class-list-wrapper {
+    border-bottom: solid 1px rgb(184, 182, 182);
+    height: 40%;
+    overflow-y: scroll;
+    padding: 20px 0px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(184, 182, 182);
+    ;
+    border-radius: 6px;
+}
+
+.aside-left .title {
+    height: 45px;
+    font-size: 18px;
+    padding: 0px 0px 15px 10px;
+}
+
+.my-class-list li {
+    padding: 8px 15px;
+    height: 40px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.my-class-list li:hover {
+    cursor: pointer;
+    background-color: #39729B;
+}
+
+.current-class-wrapper {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.current-class-wrapper div {
+    padding: 20px 20px;
+    font-size: 16px;
+}
+
+.current-class-wrapper div i {
+    margin-right: 5px;
+}
+
+.current-class-wrapper div:hover {
+    cursor: pointer;
+    background-color: #39729B;
+
+}
+
+.current-class-wrapper .message-error, .current-class-wrapper .message-success{
+    font-size: 13px;
+    padding: 7px 0 0;
+}
+.form-edit{
+    display: none;
+}
+.add-input{
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 8px;
+
+}
+/* phần chính */
+
+.class-current {
+    color: #6B6B6B;
+}
+
+.class-current .notify {
+    color: rgb(12, 60, 96);
+    vertical-align: middle;
+}
+
+.class-name {
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(12, 60, 96);
+}
+
+.class-current .courses-detail-title {
+    font-size: 22px;
+    color: #f0eeee;
+    border-bottom: solid 1px #2a70b8;
+    margin-bottom: 20px;
+}
+
+.class-current .courses-detail-title span {
+    background-color: #2a70b8;
+    padding: 10px 15px 0px 15px;
+}
+
+.classroom-info h3 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #505050;
+}
+
+.classroom-info ul {
+    margin-left: 40px;
+    font-size: 14px;
+}
+
+.learn-outline {
+    max-width: 600px;
+}
+
+.learn-outline li {
+    height: 70px;
+    padding: 9px 10px 9px 0px;
+    font-size: 14px;
+    border-bottom: solid 1px rgb(175, 172, 172);
+    display: flex;
+    align-items: center;
+}
+
+.learn-outline li a {
+    color: #505050;
+}
+
+/* edit info classroom form*/
+.class-current .modal-content, .class-current .modal-footer button, .class-current .modal-body input{
+    font-size: 17px;
+}
+.class-current .modal-body h1{
+    font-size: 23px;
+}

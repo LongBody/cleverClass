@@ -1,0 +1,77 @@
+    .video-watch {
+        padding-left: 60px;
+    }
+    
+    .list-video {
+        padding-left: 30px;
+    }
+    
+    .list-video #videoNext {
+        display: flex;
+    }
+    
+    .card {
+        width: 400px;
+    }
+    
+    .views {
+        font-size: 14px;
+        color: gray;
+        display: flex;
+    }
+    
+    .views .iconVideo {
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 883px;
+    }
+    
+    .far {
+        padding-left: 10px;
+    }
+    
+    .info {
+        display: flex;
+    }
+    
+    .info button {
+        margin-left: 1070px;
+    }
+    
+    .container-fluid {
+        padding-top: 30px;
+        background-color: transparent;
+    }
+    
+    .dot {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    .info-video-of-list {
+        padding-left: 10px;
+    }
+    
+    .name-of-video {
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .name-of-admin {
+        font-size: 14px;
+        opacity: 0.9;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .overflow-list-video {
+        overflow-y: scroll;
+        cursor: pointer;
+        height: 90vh;
+    }
+    
+    .home {
+        width: 100%;
+        max-height: 100vh;
+    }
