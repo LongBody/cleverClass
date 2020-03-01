@@ -246,16 +246,16 @@ async function navbarEventForChats() {
                 nameUser = user.displayName
                 UserAddress = user.address
                 if (UserAddress === undefined) {
-                    UserAddress = "You don't have update your information"
+                    UserAddress = "Don't have update their information"
                 }
                 UserBirthday = user.birthday
                 if (UserBirthday === undefined) {
-                    UserBirthday = "You don't have update your information"
+                    UserBirthday = "Don't have update their information"
                 }
 
 
                 html = `
-            <div class="" id="personal">
+                    <div id="personal">
                     <div class="info-personal">
                     <img class="avatar-user-search" src="${photo}" >
                      <span class="user-name-search">${nameUser}</span>

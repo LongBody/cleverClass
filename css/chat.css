@@ -6,7 +6,7 @@
 
 
 /* .container-fluid {
-    height: 100vh
+    height: 80vh
 } */
 
 .show-info {
@@ -269,7 +269,7 @@
 
 .state-friend {
     width: 20%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 95px);
     overflow-y: scroll;
 }
 

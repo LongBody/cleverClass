@@ -50,6 +50,8 @@ view.showListPosts = async function() {
                     classNameContent = ""
                     idCollapse = content
                 }
+
+                postCmt = postId + "cmt"
                 html = `
            
 <div class="card shadow post-view" >
@@ -76,19 +78,12 @@ view.showListPosts = async function() {
 <div class="comment-post mt-3 collapse" id="${idCollapse}">
 <hr/>
 <img class="avatar-user-cmt mt-1 mr-1" src="${photoCurrentUserCmt}" >
-<form class="form-group card form-add-comment">
+<form class="form-group card form-add-comment" id="${postCmt}">
   <input type="text"
-    class="form-control form-add-comment-post" name="" id="" aria-describedby="helpId" placeholder="Write a comment...">
+    class="form-control form-add-comment-post" name="comment" id="" aria-describedby="helpId" placeholder="Write a comment...">
 </form>
 
 </div>
-
-
-<div class="sub-comment collapse" id="${idCollapse}">
-<img class="avatar-user-cmt mt-1 mr-1" src="${photo}" >
-<span><a href="#">${name}</a> <span>Tao khong biet dau nhe</span></span>
-</div>
-
 
 
 </div>
@@ -103,6 +98,28 @@ view.showListPosts = async function() {
             showListPost.innerHTML += html
 
 
+            // console.log(postCmt)
+            // let formAddComment = document.getElementById(postCmt)
+            // console.log(formAddComment)
+            // formAddComment.onsubmit = formAddCommentHandler
+
+
+            // function formAddCommentHandler(e) {
+            //      e.preventDefault()
+            //     let contentComment = {
+            //         content: formAddComment.comment.value.trim(),
+            //         displayName: firebase.auth().currentUser.providerData[0].displayName,
+            //         createAt: new Date().toISOString()
+            //     }
+            //     console.log(contentComment)
+
+
+            // }
+
+
+
+
+
         }
 
 
@@ -110,28 +127,18 @@ view.showListPosts = async function() {
         showListPost.scrollTop = showListPost.scrollHeight
     }
 
-    // thumbUp();
+    function formAddCommentHandler(e) {
+        e.preventDefault();
 
-    // function thumbUp() {
+        let contentComment = {
+            content: formAddComment.comment.value.trim(),
+            displayName: firebase.auth().currentUser.providerData[0].displayName,
+            createAt: new Date().toISOString()
+        }
+        console.log(contentComment)
 
-
-
-    //     var like = false;
-
-    //     $("#like-btn-" + postId).click(function() {
-    //         if (like === false) {
-    //             like = true;
-    //             console.log(like)
-    //             $(".fa-thumbs-up").css("color", "blue")
-
-    //         } else {
-    //             like = false
-    //             console.log(like)
-    //             $(".fa-thumbs-up").removeAttr('style');
-    //         }
-    //     })
-
-    // }
+        // await controller.postComment(contentComment)
+    }
 
 
 }

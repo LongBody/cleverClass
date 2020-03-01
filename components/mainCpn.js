@@ -18,8 +18,8 @@ components.navbar = `
          
         </ul>
 
-        <form autocomplete="off" action="/action_page.php" class="mr-4 mt-3" id="form-search" style="display:none">
-        <div class=" autocomplete md-form active-cyan-2 mb-3 d-flex">
+        <form autocomplete="off" action="/action_page.php" class="mr-4 mt-2" id="form-search" style="display:none">
+        <div class=" autocomplete md-form active-cyan-2  d-flex">
         <input class="form-control mr-1" id="myInput" type="text" placeholder="Search Users" name="myCountry"  aria-label="Search"> 
         <button type="button" class="btn btn-info mr-2" id="form-search-click" data-toggle="modal" data-target="#nameSearch">Search</button> 
       </div>
@@ -188,15 +188,16 @@ components.account = `
                         </div>
                         <div class="modal-body">
                                 <label for="password" id="delete-for-email"> </label>
-                                <input type="password" class="form-control" name="password" id="password" aria-describedby="emailHelpId" placeholder="YourPassword...">                          
+                                <input type="password" class="form-control" name="password" id="password" aria-describedby="emailHelpId" placeholder="YourPassword...">   
+                                <div id="delete-account-error" class="message-error"></div>
+                                <div id="delete-account-success" class="message-success"></div>                       
                         </div>
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-delete" id="delete-account-btn">Delete</button>
                             <button type="button" class=" btn btn-cancel" data-dismiss="modal">Cancel</button>
                         </div>
-                        <div id="delete-account-error" class="message-error"></div>
-                        <div id="delete-account-success" class="message-success"></div>
+                     
                     </div>
                 </div>
             </div>
