@@ -15,11 +15,11 @@ controller.register = async function(registerInfo) {
         await firebase.auth().createUserWithEmailAndPassword(email, password)
         await firebase.firestore().collection('users').add(data)
         await firebase.auth().currentUser.sendEmailVerification()
-
-        await view.setText('register-success', 'An verification email has been sended to your email address!')
-        alert("Register Successfully:An verification email has been sended to your email address!")
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
+        // await view.setText('register-success', 'An verification email has been sended to your email address!')
+        alert("Register Successfully:An verification email has been sended to your email address!")
+
 
         await firebase.auth().currentUser.updateProfile({
             displayName: displayName
@@ -29,7 +29,7 @@ controller.register = async function(registerInfo) {
     } catch (err) {
         view.setText('register-error', err.message)
     }
-    await view.showTap('sign up')
+
 
 
     view.enable('register-btn')

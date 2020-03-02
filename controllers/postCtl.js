@@ -11,6 +11,13 @@ controller.listPost = async function() {
 
 
 }
+
+controller.postComment = async function(contentComment) {
+
+
+
+}
+
 controller.addNewPost = async function(postContent) {
     let content = postContent.content;
     let image = postContent.image;
@@ -71,6 +78,7 @@ async function uploadPostImage(file) {
 
 
 function getFileURl(fileRef) {
+    console.log(fileRef)
     return `https://firebasestorage.googleapis.com/v0/b/${fileRef.bucket}/o/${encodeURIComponent(fileRef.fullPath)}?alt=media`
 
 }
