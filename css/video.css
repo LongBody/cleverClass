@@ -27,6 +27,14 @@
     font-weight: bold;
 }
 
+.video-click {
+    cursor: pointer;
+}
+
+.video-click:hover {
+    background-color: rgb(228, 228, 228);
+}
+
 .avatar-lesson {
     height: 50px;
     border-radius: 50%;

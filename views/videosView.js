@@ -21,7 +21,7 @@ async function listLesson() {
         let url = await item.getDownloadURL();
         html = `
                  <div class="d-flex video-click">
-                     <video controls id="video-watch" class="video-watch" src="${url}">
+                     <video controls  id="video-watch" class="video-watch" src="${url}">
                          Your browser does not support the video tag.
                      </video>
                      <span class="mt-3 title-video name">${name.replace(".mp4","")}</span>
@@ -62,7 +62,7 @@ async function currentVideo() {
         let name = items[number].name
         html = `
                 <div >
-                    <video controls id="video-watch" class="video-watching" src="${url}">
+                    <video controls autoplay id="video-watch" class="video-watching" src="${url}">
                         Your browser does not support the video tag.
                     </video>
                     <div class="mt-3 title-video-watching"  id="avatar-lesson">${name.replace(".mp4","")}</div>
