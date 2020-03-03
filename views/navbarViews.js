@@ -20,6 +20,14 @@ function navbarEvent() {
         view.showComponents('chats')
     }
 
+    let eLesson = document.getElementById("e-lesson")
+    eLesson.onclick = eLessonHandlerClick
+
+    function eLessonHandlerClick() {
+        view.showComponents('lesson')
+    }
+
+
 
     // Sign out account
     $("#log-out").click(async function() {
@@ -289,6 +297,13 @@ async function navbarEventForChats() {
 
     function fastChatHandlerClick() {
         view.showComponents('chats')
+    }
+
+    let eLesson = document.getElementById("e-lesson")
+    eLesson.onclick = eLessonHandlerClick
+
+    function eLessonHandlerClick() {
+        view.showComponents('lesson')
     }
 
 

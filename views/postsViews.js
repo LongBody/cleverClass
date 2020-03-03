@@ -16,10 +16,10 @@ view.showListPosts = async function() {
 
         for (let post of posts) {
             // console.log(post)
-            let { id: postId, emailPost, image, content, createAt, like } = post
-            console.log(like)
-                // console.log(image)
-                // console.log(content)
+            let { id: postId, emailPost, image, content, createAt } = post
+
+            // console.log(image)
+            // console.log(content)
 
             for (let infoUser of infoUsers) {
 
@@ -78,7 +78,7 @@ view.showListPosts = async function() {
 <div class="comment-post mt-3 collapse" id="${idCollapse}">
 <hr/>
 <img class="avatar-user-cmt mt-1 mr-1" src="${photoCurrentUserCmt}" >
-<form class="form-group card form-add-comment" id="${postCmt}">
+<form class="form-group card form-add-comment" id="form-comment" data-form="${postCmt}">
   <input type="text"
     class="form-control form-add-comment-post" name="comment" id="" aria-describedby="helpId" placeholder="Write a comment...">
 </form>
@@ -98,23 +98,33 @@ view.showListPosts = async function() {
             showListPost.innerHTML += html
 
 
-            // console.log(postCmt)
-            // let formAddComment = document.getElementById(postCmt)
-            // console.log(formAddComment)
-            // formAddComment.onsubmit = formAddCommentHandler
+            let formAddComment = document.getElementById("form-comment")
+            let dataCmts = document.getElementsByClassName("form-add-comment")
+                // dataCmt.map(id => {
+                //     console.log(id.dataSet.form)
+
+            // })
+            console.log(dataCmts)
+            for (let dataCmt of dataCmts) {
+                console.log(dataCmt)
+            }
 
 
-            // function formAddCommentHandler(e) {
-            //      e.preventDefault()
-            //     let contentComment = {
-            //         content: formAddComment.comment.value.trim(),
-            //         displayName: firebase.auth().currentUser.providerData[0].displayName,
-            //         createAt: new Date().toISOString()
-            //     }
-            //     console.log(contentComment)
 
+            formAddComment.onsubmit = formAddCommentHandler
 
-            // }
+            function formAddCommentHandler(e) {
+                e.preventDefault();
+
+                let contentComment = {
+                    content: formAddComment.comment.value.trim(),
+                    displayName: firebase.auth().currentUser.providerData[0].displayName,
+                    createAt: new Date().toISOString()
+                }
+                console.log(contentComment)
+
+                // await controller.postComment(contentComment)
+            }
 
 
 
@@ -127,18 +137,6 @@ view.showListPosts = async function() {
         showListPost.scrollTop = showListPost.scrollHeight
     }
 
-    function formAddCommentHandler(e) {
-        e.preventDefault();
-
-        let contentComment = {
-            content: formAddComment.comment.value.trim(),
-            displayName: firebase.auth().currentUser.providerData[0].displayName,
-            createAt: new Date().toISOString()
-        }
-        console.log(contentComment)
-
-        // await controller.postComment(contentComment)
-    }
 
 
 }

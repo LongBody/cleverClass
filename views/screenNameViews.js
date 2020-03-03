@@ -314,20 +314,9 @@ view.showComponents = async function(screenName) {
 
                 navbarEvent();
 
-                $("#videoNext").click(function() {
-                    $("#video-watch").attr("src", $(" #videoNext #idVideoNext").prop('src'))
-                });
+                listLesson();
 
-
-                let count = 0;
-
-                $(document).ready(function() {
-                    $("#presentVideo").click(function() {
-                        count++;
-                        console.log(count)
-                        $("#views").html(count + " views")
-                    })
-                });
+                currentVideo();
 
                 break;
             }
@@ -555,6 +544,9 @@ view.showComponents = async function(screenName) {
 
                         });
                     });
+
+
+
 
 
 

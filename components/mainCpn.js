@@ -12,8 +12,11 @@ components.navbar = `
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" id="fastChat">Messenger</a>
+                <a class="nav-link" href="#" id="fastChat">Vsocial</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#" id="e-lesson">E-lesson</a>
+        </li>
 
          
         </ul>
