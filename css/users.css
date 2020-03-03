@@ -38,17 +38,16 @@
         padding: 10px;
         font-size: 16px;
     } */
-    
-    input[type=text] {
+    /* input[type=text] {
         background-color: #f1f1f1;
         width: 100%;
-    }
-    
+    } */
+    /*     
     input[type=submit] {
         background-color: DodgerBlue;
         color: #fff;
         cursor: pointer;
-    }
+    } */
     
     .active-pink-2 input.form-control[type=text]:focus:not([readonly]) {
         border-bottom: 1px solid #f48fb1;
