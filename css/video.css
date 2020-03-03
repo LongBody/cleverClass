@@ -45,3 +45,10 @@
         display: inline-block;
     }
 }
+
+@media only screen and (min-width: 900px) {
+    .video-watch {
+        width: 170px;
+        height: 120px;
+    }
+}

@@ -4,10 +4,9 @@
     height: 25px;
 }
 
-
-/* .container-fluid {
+.container-fluid {
     height: 80vh
-} */
+}
 
 .show-info {
     display: inline-block;
@@ -161,7 +160,7 @@
 
 .social-media {
     width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 70px);
     padding: 10px;
     display: flex;
 }
@@ -269,7 +268,7 @@
 
 .state-friend {
     width: 20%;
-    height: calc(100vh - 95px);
+    height: calc(100vh - 63px);
     overflow-y: scroll;
 }
 
