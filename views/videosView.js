@@ -49,9 +49,6 @@ async function currentVideo() {
 
     let userName = firebase.auth().currentUser.providerData[0].displayName
     let photoURL = firebase.auth().currentUser.providerData[0].photoURL
-
-    console.log(photoURL)
-
     var videos = await firebase.storage().ref('video/').listAll()
     let items = videos.items;
 
