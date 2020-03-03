@@ -46,9 +46,16 @@ async function listLesson() {
 }
 
 async function currentVideo() {
-
+    let photoURL
     let userName = firebase.auth().currentUser.providerData[0].displayName
-    let photoURL = firebase.auth().currentUser.providerData[0].photoURL
+    let currentEmail = firebase.auth().currentUser.email
+    await controller.loadListUserStatus();
+    infoUsers = model.listUserStatus;
+    infoUsers.map(user => {
+        if (user.email = currentEmail) {
+            photoURL = user.photoURL
+        }
+    })
 
     var videos = await firebase.storage().ref('video/').listAll()
     let items = videos.items;
@@ -69,7 +76,7 @@ async function currentVideo() {
                     <div class="mt-3 title-video-watching"  id="avatar-lesson">${name.replace(".mp4","")}</div>
 
                     <div class="mt-2">
-                    <img class="avatar-lesson "src="${photoURL}"><span  class="ml-2 userNameVideo">${userName }</span>
+                    <img class="avatar-lesson "src="${photoURL}"><span  class="ml-2 userNameVideo">${userName}</span>
                     </div>
             
                 </div>`
