@@ -46,16 +46,11 @@ async function listLesson() {
 }
 
 async function currentVideo() {
-    let photoURL
+
     let userName = firebase.auth().currentUser.providerData[0].displayName
-    let currentEmail = firebase.auth().currentUser.email
-    await controller.loadListUserStatus();
-    infoUsers = model.listUserStatus;
-    infoUsers.map(user => {
-        if (user.email = currentEmail) {
-            photoURL = user.photoURL
-        }
-    })
+    let photoURL = firebase.auth().currentUser.providerData[0].photoURL
+
+    console.log(photoURL)
 
     var videos = await firebase.storage().ref('video/').listAll()
     let items = videos.items;
