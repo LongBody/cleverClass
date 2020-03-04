@@ -247,7 +247,8 @@ components.lesson = `<div class="container-fluid homeVideo">
 </div>`
 
 components.fullScreenChat = `
-<div class="chat-container-full-screen">  
+<div class="chat-container-full-screen"> 
+<a href="#" class="mr-2" style="color:black" id="backToVsocial">Back</a> 
 
     <div class="current-conversation shadow">
         <div class="dropdown">

@@ -914,6 +914,11 @@ view.showComponents = async function(screenName) {
 
                 }
 
+                $("#backToVsocial").click(function() {
+
+                    view.showComponents("chats")
+                })
+
 
 
                 async function addEmailConversationHandler(e) {

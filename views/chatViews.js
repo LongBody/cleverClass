@@ -135,7 +135,7 @@ view.showCurrentConversationFullScreen = function(id) {
 
 
                 html = `
-    <div class="${className} show-message" >
+    <div class="${className} show-message">
     <div class="show-info " id="show-info"><img id="myImage" class="myImage" src="${photo}">
     <div class="none"> <div >${name}</div>
     
