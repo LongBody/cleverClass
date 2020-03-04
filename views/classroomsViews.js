@@ -73,13 +73,42 @@ view.showCurrentClassroom = function() {
         let index = 1
         for (let lesson of lessons) {
             lessonsHTML += `
-                <li class="learn-outline-item">
-                    Bài ${index}: ${lesson.lessonName}
+                <li id="lesson-${index}" class="learn-outline-item d-flex">
+                    <span>Bài ${index}: </span>
+                    <span id="lessonName${index}" class="lesson-name mr-auto"> ${lesson.lessonName}</span>
+                    <i class="edit-lesson fas fa-pencil-alt p-2" data-toggle="modal" data-target="#editClassModal"></i>
+                    <i class="delete-lesson far fa-trash-alt" data-toggle="modal" data-target="#deleteClassModal"></i>
                 </li>
                 `
             index++
         }
         document.getElementById('lessons').innerHTML = lessonsHTML
+        let deleteLessonBtn = document.getElementById('delete-lesson-btn')
+        let editLessonBtn = document.getElementById('edit-lesson-btn')
+        for (let i = 1; i < index; i++){
+
+            let editLesson = document.querySelector(`#lesson-${i} > .edit-lesson`)
+            editLesson.onclick = function(){
+                let lessonName = document.querySelector(`#lesson-${i} > .lesson-name`)
+                let editLessonNameInput = document.getElementById('editLessonNameInput')
+                editLessonNameInput.value = lessonName.innerText
+                editLessonBtn.onclick = function(){
+                    controller.editLesson(editLessonNameInput.value, lessonName.id)
+                    $('#editClassModal').modal('hide')
+                }
+            }
+
+            let deleteLesson =  document.querySelector(`#lesson-${i} > .delete-lesson`)
+            deleteLesson.onclick = function(){
+                let lesson = document.querySelector(`#lesson-${i}`)
+                deleteLessonBtn.onclick = function(){
+                    controller.deleteLesson(lesson.id)
+                    $('#deleteClassModal').modal('hide')
+                }
+            }
+        }
+        
+        
     }
 }
 view.loadEditInfoClassroomForm = function(editInfoForm) {
@@ -88,4 +117,8 @@ view.loadEditInfoClassroomForm = function(editInfoForm) {
     editInfoForm.numberLesson.value = decription.courseTime.numberOfLesson
     editInfoForm.timeStart.value = decription.courseTime.start
     editInfoForm.timeEnd.value = decription.courseTime.end
+}
+
+function deleteLessonClickHandler(lessonId){
+    console.log(lessonId.innerHTML)
 }

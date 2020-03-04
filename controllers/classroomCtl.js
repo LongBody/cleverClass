@@ -66,12 +66,12 @@ controller.changeTeacher = function(userName) {
 }
 
 controller.setupDatabaseClassroomChange = function() {
-    let currentEmail = firebase.auth().currentUser.email
+    let currentDisplayName = firebase.auth().currentUser.providerData[0].displayName
     let isFirstRun = true
-    firebase
+    return firebase
         .firestore()
         .collection('Classrooms')
-        .where('members', 'array-contains', currentEmail)
+        .where('members', 'array-contains', currentDisplayName)
         .onSnapshot(function(snapshot) {
             if (isFirstRun) {
                 isFirstRun = false
@@ -110,4 +110,31 @@ controller.validateUserNameAdded = function(userName) {
         return false
     }
     return true
+}
+
+controller.deleteLesson = function(lessonId) {
+    let lessonIndex = parseInt(lessonId[lessonId.length - 1]) - 1
+    console.log(lessonIndex)
+    let lessons = model.currentClassroom.lessons
+    lessons.splice(lessonIndex, 1)
+    console.log(lessons)
+    return firebase
+        .firestore()
+        .collection('Classrooms')
+        .doc(model.currentClassroom.id)
+        .update({
+            lessons: lessons
+        })
+}
+
+controller.editLesson = function(lessonName, elementId){
+    let elementIndex = parseInt(elementId[elementId.length - 1]) - 1
+    model.currentClassroom.lessons[elementIndex].lessonName = lessonName
+    return firebase
+        .firestore()
+        .collection('Classrooms')
+        .doc(model.currentClassroom.id)
+        .update({
+            lessons: model.currentClassroom.lessons
+        })
 }

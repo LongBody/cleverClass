@@ -93,6 +93,47 @@ components.classroom = `<div class="d-flex">
         </ul>
     </div>
 
+    <div class="modal fade alert-modal" id="deleteClassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">CleverClass - Xác nhận</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Xóa bài học đồng nghĩa với xóa tất dữ liệu của bài học đó.<br> Bạn vẫn muốn tiếp tục xóa bài?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                <button id="delete-lesson-btn" type="button" class="btn btn-primary" style="background-color: rgb(12, 60, 96)">Xóa</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade alert-modal" id="editClassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">CleverClass</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input id="editLessonNameInput" class="form-control" type="text" placeholder="Nhập tên bài học...">
+                <span></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                <button id="edit-lesson-btn" type="button" class="btn btn-primary" style="background-color: rgb(12, 60, 96)">Áp dụng</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

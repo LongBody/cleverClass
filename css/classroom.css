@@ -165,3 +165,15 @@ ul {
 .class-current .modal-body h1{
     font-size: 23px;
 }
+
+/* form delete lesson */
+/* .alert-modal{
+    width: 400px;
+} */
+.alert-modal .modal-header h5{
+    font-size: 19px;
+    font-size: bold;
+}
+.alert-modal .modal-footer button{
+    width: 104px;
+}
