@@ -442,6 +442,11 @@ view.showComponents = async function(screenName) {
 
                     }
                 }
+                $("#chat-fullscreen").css("display", "block")
+
+                $("#chat-fullscreen").click(function() {
+                    view.showComponents('fullScreenChat')
+                })
 
 
 
@@ -720,6 +725,212 @@ view.showComponents = async function(screenName) {
 
 
                 break;
+            }
+        case 'fullScreenChat':
+            {
+                let myWeb = document.getElementById('my-web')
+                myWeb.innerHTML = components.navbar + components.fullScreenChat
+
+                navbarEvent();
+
+                let formAddMessage = document.getElementById('form-add-message')
+                formAddMessage.onsubmit = formAddMessageSubmit
+
+
+                let formAddConversation = document.getElementById('form-add-conversation')
+                formAddConversation.onsubmit = formAddConversationSubmit
+
+                let leaveConversation = document.getElementById("leave-conversation-btn")
+                leaveConversation.onclick = leaveConversationHandler
+
+                let formAddEmail = document.getElementById('form-add-email')
+                formAddEmail.onsubmit = addEmailConversationHandler
+
+
+
+                navbarEventForChats();
+
+                controller.setupDatabaseChange();
+                controller.setupPostChange();
+                await controller.loadListUserStatus();
+
+                await controller.setupData();
+                let dataUser = model.dataUser
+                console.log(model.listPosts)
+
+                await getDataCurrentUserInnnerHtml(dataUser);
+
+
+
+
+                await controller.loadConversations() // load all conversations and save to model
+
+                view.showCurrentConversation() // read data from model and display to screen
+
+                view.showListConversation()
+
+                // await controller.loadNewPost() // load all conversations and save to model
+                // console.log(model.conversations)
+                // console.log(model.listUserStatus)
+
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = async function(e) {
+                            await $('#blah').attr('src', e.target.result).css("display", "block").width(80).height(50)
+                            $("#buttonCloseImage").css("display", "block")
+                            $("#buttonCloseImage").click(function() {
+                                $('#blah').css("display", "none")
+                                $('#buttonCloseImage').css("display", "none")
+                            })
+
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+                $("#image").change(function() {
+                    readURL(this);
+                });
+
+                async function formAddNewPostHandler(e) {
+                    e.preventDefault();
+                    view.disable('post-btn')
+                    let content = formAddNewPost.post.value;
+                    let image = formAddNewPost.imagePost.files[0]
+                    console.log(content)
+                    let imageURL;
+                    if (image) {
+                        imageURL = await uploadPostImage(image)
+                    } else
+                        imageURL = ""
+
+
+                    console.log(imageURL)
+
+
+                    let postContent = {
+                        content: content,
+                        image: imageURL
+                    }
+                    console.log(postContent)
+
+                    await controller.addNewPost(postContent)
+                    formAddNewPost.post.value = ''
+                    $('#blah').css("display", "none")
+                    $('#buttonCloseImage').css("display", "none")
+                    view.enable('post-btn')
+
+                }
+
+                async function formAddMessageSubmit(e) {
+                    e.preventDefault()
+                    let content = formAddMessage.message.value.trim()
+
+
+
+                    if (model.currentConversation && content) {
+
+                        view.disable('form-add-message-btn')
+                        let message = {
+                            content: content,
+                            owner: firebase.auth().currentUser.email,
+                            createAt: new Date().toISOString()
+                        }
+                        await controller.updateNewMessage(model.currentConversation.id, message)
+                        formAddMessage.message.value = ''
+                        view.enable('form-add-message-btn')
+
+
+                    }
+                }
+
+
+
+                async function formAddConversationSubmit(e) {
+                    e.preventDefault();
+
+                    let title = formAddConversation.title.value;
+                    let friendEmail = formAddConversation.friendEmail.value.trim().toLowerCase();
+                    let currentEmail = firebase.auth().currentUser.email;
+                    let friendEmailExists = await controller.validateEmailExists(friendEmail)
+
+                    let validateResult = [
+                        view.validate('title-error', [
+                            title, 'Missing tittle'
+                        ]),
+
+                        view.validate('friend-email-error', [
+                            friendEmail, 'Missing friendEmail',
+                            friendEmailExists, 'Friend email do not exists',
+                            friendEmail != currentEmail, `Please enter an other person's email `
+                        ])
+
+                    ]
+                    if (view.allPassed(validateResult)) {
+                        let conversation = {
+                            users: [currentEmail, friendEmail],
+                            messages: [],
+                            title: title,
+                            createAt: new Date().toISOString()
+                        }
+                        console.log(conversation)
+                        await controller.addConversation(conversation)
+                        console.log('added new conversation')
+
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
+                        await view.showComponents("chats")
+
+                        formAddConversation.title.value = ""
+                        formAddConversation.friendEmail.value = ""
+                    }
+
+                }
+
+                let currentEmail = firebase.auth().currentUser.email
+                let currentId = model.currentConversation.id
+
+                async function leaveConversationHandler() {
+                    await firebase.firestore().collection('conversations').doc(currentId).update({
+                        users: firebase.firestore.FieldValue.arrayRemove(currentEmail),
+                    })
+                    await location.reload();
+
+
+
+                }
+
+
+                async function addEmailConversationHandler(e) {
+                    e.preventDefault();
+                    let friendEmail = formAddEmail.emailAdd.value.trim().toLowerCase()
+
+                    let friendEmailExists = await controller.validateEmailExists(friendEmail)
+                    let currentEmail = firebase.auth().currentUser.email;
+
+                    let validateResult = [
+                        view.validate('friend-email-error', [
+                            friendEmail, 'Missing friendEmail',
+                            friendEmailExists, 'Friend email do not exists',
+                            friendEmail != currentEmail, `Please enter an other person's email `
+                        ])
+
+
+                    ]
+
+                    if (view.allPassed(validateResult)) {
+
+                        await firebase.firestore().collection('conversations').doc(currentId).update({
+                            users: firebase.firestore.FieldValue.arrayUnion(friendEmail),
+                        })
+
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
+                        await view.showComponents("chats")
+                    }
+                }
             }
     }
 }

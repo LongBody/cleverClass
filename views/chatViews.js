@@ -82,7 +82,7 @@ function updateAvatar() {
     $("#myImage").attr("src", photo)
 }
 
-view.showListMember = function() {
+view.showListMember = async function() {
     let listConversation = document.getElementById('listMemberConversation')
 
 
@@ -96,34 +96,38 @@ view.showListMember = function() {
     let photo;
     let name;
     let users = conversations.users;
-    // console.log(infoUsers)
-    // console.log(users)
+
+    listConversation.innerHTML = ""
+        // console.log(users)
     for (let infoUser of infoUsers) {
         let { displayName, photoURL, email } = infoUser;
-        console.log(email)
-        users.map(user => {
-            // console.log(user)
+        await console.log(email)
+
+        await users.map(user => {
+            console.log(user)
             if (user === email) {
                 photo = photoURL
                     // console.log(photo)
                 name = displayName
-                console.log(name)
+                    // console.log(name)
 
 
-                html += `   
+                html = `   
           <div class="conversation-member-right">
            <img class="avatar-member" src="${photo}">
              ${name}</div>
          `
-                    // console.log(html)
+                console.log(html)
+                listConversation.innerHTML += html
             }
+
         })
+
     }
 
-
-    listConversation.innerHTML += html.replace("undefined", "")
-
 }
+
+
 
 
 view.showListConversation = function() {

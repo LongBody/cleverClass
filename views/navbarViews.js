@@ -53,13 +53,13 @@ function navbarEvent() {
             let file = input.files[0]
 
             let link = await upload(file)
-            console.log(link)
+                // console.log(link)
 
             await user.updateProfile({
                 photoURL: link
             }).then(async function() {
                 view.showComponents("account")
-                console.log("success")
+                    // console.log("success")
 
             }).catch(function(error) {
                 console.log(error)
@@ -112,7 +112,7 @@ async function navbarEventForChats() {
         // Get the displayName of user in firebase
     await controller.loadListUserStatus();
     infoUsers = model.listUserStatus
-    console.log(infoUsers)
+        // console.log(infoUsers)
 
     let arrayName = [];
 
@@ -121,7 +121,7 @@ async function navbarEventForChats() {
     })
 
 
-    console.log(arrayName)
+    // console.log(arrayName)
 
 
     let displayName = document.getElementById('displayName')
@@ -233,7 +233,7 @@ async function navbarEventForChats() {
 
 
     var countries = arrayName
-    console.log(countries)
+        // console.log(countries)
 
     /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
     autocomplete(document.getElementById("myInput"), countries);

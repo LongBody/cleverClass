@@ -104,9 +104,9 @@ view.showListPosts = async function() {
                 //     console.log(id.dataSet.form)
 
             // })
-            console.log(dataCmts)
+            // console.log(dataCmts)
             for (let dataCmt of dataCmts) {
-                console.log(dataCmt)
+                // console.log(dataCmt)
             }
 
 

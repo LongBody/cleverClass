@@ -54,11 +54,10 @@ async function currentVideo() {
 
     var currentVideo = document.getElementById("currentVideo")
     currentVideo.innerHTML = ""
+    let number = Math.ceil(Math.random() * 5)
 
-    items[0].getDownloadURL().then(async function(url) {
-        // console.log(url)
-        let number = Math.ceil(Math.random() * 5)
-        console.log(number)
+    items[number].getDownloadURL().then(async function(url) {
+
         let name = items[number].name
         html = `
                 <div >

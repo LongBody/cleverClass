@@ -62,8 +62,16 @@
 
 .chat-container {
     width: 30%;
-    height: calc(100vh - 95px);
+    height: calc(100vh - 70px);
     display: flex;
+}
+
+.chat-container-full-screen {
+    width: 80%;
+    height: calc(100vh - 65px);
+    display: flex;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
 .current-conversation {
@@ -102,6 +110,20 @@
     max-height: 60%;
     overflow-y: scroll;
 }
+
+.list-conversation-fullScreen {
+    margin-left: 20px;
+    width: 20%;
+    overflow-y: scroll;
+    background-color: white !important;
+}
+
+
+/* .list-conversation-fullScreen :hover {
+   
+    cursor: pointer;
+    border-radius: 10px;
+} */
 
 .conversation-icon-group {
     padding-right: 10px;
