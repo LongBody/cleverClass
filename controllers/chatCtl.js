@@ -61,6 +61,33 @@ controller.setupDatabaseChange = function() {
     })
 }
 
+controller.setupDatabaseChangeFull = function() {
+    let currentEmail = firebase.auth().currentUser.email
+    let isFirstRun = true
+
+    firebase.firestore().collection('conversations').where('users', 'array-contains', currentEmail).onSnapshot(function(snapshot) {
+        if (isFirstRun) {
+            isFirstRun = false
+            return
+        }
+        let docChanges = snapshot.docChanges()
+        for (docChange of docChanges) {
+            if (docChange.type == "modified") {
+                let conversationChange = transformDoc(docChange.doc)
+                model.updateConversation(conversationChange)
+                view.showCurrentConversationFullScreen()
+
+            }
+            if (docChanges.type == 'added') {
+                let conversationChange = transformDoc(docChange.doc)
+                model.updateConversation(conversationChange)
+                view.showListConversation()
+            }
+        }
+
+    })
+}
+
 controller.updateNewMessage = function(conversationId, message) {
     return firebase.firestore().collection('conversations').doc(conversationId).update({
         messages: firebase.firestore.FieldValue.arrayUnion(message)

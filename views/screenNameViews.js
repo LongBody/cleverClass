@@ -750,7 +750,7 @@ view.showComponents = async function(screenName) {
 
                 navbarEventForChats();
 
-                controller.setupDatabaseChange();
+                controller.setupDatabaseChangeFull();
                 controller.setupPostChange();
                 await controller.loadListUserStatus();
 
