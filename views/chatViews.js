@@ -266,6 +266,7 @@ view.showListConversation = function() {
                 view.showListConversation()
                 view.showCurrentConversation()
                 view.showCurrentConversationFullScreen()
+                console.log('update')
 
             }
         }
