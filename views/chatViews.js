@@ -265,6 +265,7 @@ view.showListConversation = function() {
                 model.saveCurrentConversation(conversation)
                 view.showListConversation()
                 view.showCurrentConversation()
+                view.showCurrentConversationFullScreen()
 
             }
         }
