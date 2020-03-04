@@ -9,10 +9,6 @@ function navbarEvent() {
     })
 
     displayName.innerHTML = userName
-    $("#message-responsive").click(function() {
-
-        view.showComponents("fullScreenChat")
-    })
 
 
     var user = firebase.auth().currentUser;
@@ -47,6 +43,8 @@ function navbarEvent() {
         }
 
     )
+
+
 
 
     async function readURL(input) {
@@ -134,10 +132,10 @@ async function navbarEventForChats() {
     $("#form-search").css("display", "block");
     $("#avatarName").html(userName)
 
-    $("#message-responsive").click(function() {
+    // $("#message-responsive").click(function() {
 
-        view.showComponents("fullScreenChat")
-    })
+    //     view.showComponents("fullScreenChat")
+    // })
 
 
 
