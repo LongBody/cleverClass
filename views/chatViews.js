@@ -17,8 +17,12 @@ view.showCurrentConversation = function(id) {
             let html
 
 
-            let currentUser = firebase.auth().currentUser
 
+
+
+
+            let currentUser = firebase.auth().currentUser
+            let createAt = message.createAt;
             let content = message.content
             let owner = message.owner
 
@@ -42,18 +46,107 @@ view.showCurrentConversation = function(id) {
                         name = displayName
                     }
 
+
                 })
 
 
                 html = `
-    <div class="${className} show-message"  >
-    <div class="show-info"><img id="myImage" class="myImage" src="${photo}">
+    <div class="${className} show-message" >
+    <div class="show-info " id="show-info"><img id="myImage" class="myImage" src="${photo}">
     <div class="none"> <div >${name}</div>
+    
     </div></div>
-       <span>${content}</span>     
+       <span>${content}</span>  
+       <div id="time-full-chat" style="display:none" >${createAt}</div>  
      </div>
+    
   `
             }
+            listMessage.innerHTML += html
+
+
+        }
+
+
+        // document.getElementById('laugh-show').addEventListener('click', function() {
+        //     // listMessage.innerHTML += ` <span class="thumb-up-show"><i class="fas fa-thumbs-up"></i></span>`
+        //     let message = {
+        //         content: '<i class = "fas fa-thumbs-up"></i>',
+        //         owner: firebase.auth().currentUser.email,
+        //         createAt: new Date().toISOString()
+        //     }
+        //     controller.updateNewMessage(model.currentConversation.id, message);
+        // })
+
+        listMessage.scrollTop = listMessage.scrollHeight
+    }
+
+}
+
+
+
+
+
+view.showCurrentConversationFullScreen = function(id) {
+    if (model.currentConversation && model.listUserStatus) {
+        let messages = model.currentConversation.messages;
+        let userArray = model.currentConversation.users;
+        infoUsers = model.listUserStatus
+
+        let currentEmail = firebase.auth().currentUser.email
+
+        let listMessage = document.getElementById('list-message')
+        listMessage.innerHTML = ''
+
+        for (let message of messages) {
+
+
+            let photo;
+            let name;
+            let html
+
+            let currentUser = firebase.auth().currentUser
+            let createAt = message.createAt;
+            let content = message.content
+            let owner = message.owner
+
+
+            let className = ''
+            if (owner == currentEmail) {
+                className = 'message your'
+
+            } else {
+                className = 'message other'
+
+
+            }
+            for (let infoUser of infoUsers) {
+
+                let { displayName, photoURL, email } = infoUser;
+
+                userArray.map(user => {
+                    if (owner === email) {
+                        photo = photoURL
+                        name = displayName
+                    }
+
+
+                })
+
+
+                html = `
+    <div class="${className} show-message" >
+    <div class="show-info " id="show-info"><img id="myImage" class="myImage" src="${photo}">
+    <div class="none"> <div >${name}</div>
+    
+    </div></div>
+       <span>${content}</span>  
+       <div class="time-full-screen">${createAt}</div>  
+     </div>
+    
+  `
+            }
+
             listMessage.innerHTML += html
 
 

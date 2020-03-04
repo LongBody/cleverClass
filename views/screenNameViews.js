@@ -433,7 +433,7 @@ view.showComponents = async function(screenName) {
                         let message = {
                             content: content,
                             owner: firebase.auth().currentUser.email,
-                            createAt: new Date().toISOString()
+                            createAt: moment().subtract(new Date().toISOString()).calendar()
                         }
                         await controller.updateNewMessage(model.currentConversation.id, message)
                         formAddMessage.message.value = ''
@@ -765,13 +765,23 @@ view.showComponents = async function(screenName) {
 
                 await controller.loadConversations() // load all conversations and save to model
 
-                view.showCurrentConversation() // read data from model and display to screen
+                view.showCurrentConversationFullScreen() // read data from model and display to screen
 
                 view.showListConversation()
 
                 // await controller.loadNewPost() // load all conversations and save to model
                 // console.log(model.conversations)
                 // console.log(model.listUserStatus)
+
+
+
+
+
+
+
+
+
+
 
                 function readURL(input) {
                     if (input.files && input.files[0]) {
@@ -836,7 +846,7 @@ view.showComponents = async function(screenName) {
                         let message = {
                             content: content,
                             owner: firebase.auth().currentUser.email,
-                            createAt: new Date().toISOString()
+                            createAt: moment().subtract(new Date().toISOString()).calendar()
                         }
                         await controller.updateNewMessage(model.currentConversation.id, message)
                         formAddMessage.message.value = ''
@@ -889,6 +899,8 @@ view.showComponents = async function(screenName) {
 
                 }
 
+
+
                 let currentEmail = firebase.auth().currentUser.email
                 let currentId = model.currentConversation.id
 
@@ -901,6 +913,7 @@ view.showComponents = async function(screenName) {
 
 
                 }
+
 
 
                 async function addEmailConversationHandler(e) {
@@ -930,7 +943,14 @@ view.showComponents = async function(screenName) {
                         $('.modal-backdrop').remove();
                         await view.showComponents("chats")
                     }
+
+
                 }
+
+
+
+
+
             }
     }
 }

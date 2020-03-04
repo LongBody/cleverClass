@@ -153,6 +153,10 @@
     border-radius: 10px;
 }
 
+.time-full-screen {
+    font-size: 13px;
+}
+
 .conversation-member {
     font-size: 12;
     text-align: right;
