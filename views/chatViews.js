@@ -57,7 +57,7 @@ view.showCurrentConversation = function(id) {
     
     </div></div>
        <span>${content}</span>  
-       <div id="time-full-chat" style="display:none" >${createAt}</div>  
+ 
      </div>
     
   `
@@ -140,9 +140,9 @@ view.showCurrentConversationFullScreen = function(id) {
     <div class="none"> <div >${name}</div>
     
     </div></div>
-    <div class="time-full-screen">${createAt}</div> 
+   
        <span>${content}</span>  
-      
+       <div class="time-full-screen">${createAt}</div> 
      </div>
     
   `
