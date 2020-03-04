@@ -425,6 +425,10 @@
     display: none;
 }
 
+.message-responsive {
+    display: none;
+}
+
 @media only screen and (max-width: 600px) {
     .aside-left-chat {
         display: none;
@@ -453,6 +457,9 @@
     .card-social-post {
         margin-left: 0px;
     }
+    .message-responsive {
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -470,5 +477,8 @@
     }
     .card-social-post {
         margin-left: 0px;
+    }
+    .message-responsive {
+        display: block;
     }
 }

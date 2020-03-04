@@ -9,6 +9,11 @@ function navbarEvent() {
     })
 
     displayName.innerHTML = userName
+    $("#message-responsive").click(function() {
+
+        view.showComponents("fullScreenChat")
+    })
+
 
     var user = firebase.auth().currentUser;
 
@@ -121,12 +126,18 @@ async function navbarEventForChats() {
     })
 
 
+
     // console.log(arrayName)
 
 
     let displayName = document.getElementById('displayName')
     $("#form-search").css("display", "block");
     $("#avatarName").html(userName)
+
+    $("#message-responsive").click(function() {
+
+        view.showComponents("fullScreenChat")
+    })
 
 
 

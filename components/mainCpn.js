@@ -17,6 +17,9 @@ components.navbar = `
             <li class="nav-item">
             <a class="nav-link" href="#" id="e-lesson">E-lesson</a>
         </li>
+        <li class="nav-item message-responsive" id="message-responsive">
+        <a class="nav-link" href="#" id="e-lesson">Messenger</a>
+    </li>
 
          
         </ul>
