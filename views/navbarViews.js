@@ -103,7 +103,7 @@ function navbarEvent() {
         readURL(this);
     })
 
-    $("#uploadVideo").submit(function() {
+    $("#uploadVideo").submit(async function() {
         let videoName = document.getElementById("uploadVideo").name.value;
         let filePath = `videos/${videoName}`;
         let fileRef = firebase.storage().ref().child(filePath)
@@ -395,7 +395,7 @@ async function navbarEventForChats() {
         readURL(this);
     })
 
-    $("#uploadVideo").submit(function() {
+    $("#uploadVideo").submit(async function() {
         let videoName = document.getElementById("uploadVideo").name.value;
         let filePath = `videos/${videoName}`;
         let fileRef = firebase.storage().ref().child(filePath)
