@@ -17,6 +17,9 @@ view.showComponents = async function(screenName) {
                 let loginForm = document.getElementById('log-in-form')
                 loginForm.onsubmit = formSubmitHandler
 
+                // let forgetPassword = document.getElementById("form-forget-password")
+                // forgetPassword.onclick = forgetPasswordHandler
+
                 var provider = new firebase.auth.GoogleAuthProvider();
                 let googleSignIn = document.getElementById('google-sign-in')
                 googleSignIn.onclick = googleSignInHandler
@@ -112,6 +115,18 @@ view.showComponents = async function(screenName) {
                     });
                 }
 
+                // async function forgetPasswordHandler(e) {
+                //     e.preventDefault()
+                //     let email = forgetPassword.forgetPassword.value
+                //     var auth = firebase.auth();
+
+                //     auth.sendPasswordResetEmail(email).then(function() {
+                //         alert("Check your email to reset your password")
+                //     }).catch(function(error) {
+                //         alert(error)
+                //     });
+                // }
+
                 // sign in with facebook
 
                 firebase.auth().useDeviceLanguage();
@@ -165,15 +180,7 @@ view.showComponents = async function(screenName) {
                 addClass.onclick = linkClickHandler
 
                 //Xóa lớp học
-                let classrooms = model.classrooms
-                for (let classroom of classrooms) {
-                    let classroomId = classroom.id
-                    let deleteClassroom = document.getElementById(`delete${classroomId}`)
-                    deleteClassroom.onclick = function() {
-                        controller.deleteClassroom(classroomId)
-                            //controller.setupDatabaseClassroomChange()
-                    }
-                }
+
 
                 let fastChat = document.getElementById('fastChat')
                 fastChat.onclick = fastChatHandlerClick
@@ -185,6 +192,7 @@ view.showComponents = async function(screenName) {
                 function fastChatHandlerClick() {
                     view.showComponents('chats')
                 }
+
 
 
                 break

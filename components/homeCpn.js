@@ -129,7 +129,7 @@ components.home = `<div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                        <a href="#"><small id="emailHelpId" class="form-text text-muted">Forget Password</small></a>
+                        <a href="#"><small id="emailHelpId" class="form-text text-muted"  data-toggle="modal" data-target="#forgetPassword">Forget Password</small></a>
                        </div>
                     </div>
                 </div>
@@ -186,9 +186,34 @@ components.home = `<div>
                                 
                         </div>
                         <div class="modal-footer">
-                     <a href="#"><small id="emailHelpId" class="form-text text-muted">Forget Password</small></a>
+                     <a href="#"><small id="emailHelpId" class="form-text text-muted" data-toggle="modal" data-target="#forgetPassword">Forget Password</small></a>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+        <div class="modal fade" id="forgetPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Forget Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form class="modal-body" id="form-forget-password">
+      
+          <input type="email" class="form-control" name="forgetPassword" id="" aria-describedby="emailHelpId" placeholder="Enter your email">
+          <button type="submit" class="btn btn-success" style="background-color:green">Get New password</button>
+      
+  
+  </form>
+      <div class="modal-footer">
+      
+      </div>
+    </div>
+  </div>
+</div>
 `

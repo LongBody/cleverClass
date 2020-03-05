@@ -24,15 +24,14 @@ controller.addClassroom = function(classroom) {
         .add(classroom)
 }
 
-controller.deleteClassroom =  function(classroomId) {
+controller.deleteClassroom = function(classroomId) {
     return firebase
         .firestore()
         .collection('Classrooms')
         .doc(classroomId)
-        .delete().then( async function() {
-            await controller.setupDatabaseClassroomRemove();
+        .delete().then(async function() {
             console.log("Document successfully deleted!");
-           
+
         }).catch(function(error) {
             console.error("Error removing document: ", error);
         });
@@ -87,7 +86,7 @@ controller.setupDatabaseClassroomChange = function() {
         .firestore()
         .collection('Classrooms')
         .where('members', 'array-contains', currentDisplayName)
-        .onSnapshot(function(snapshot) {
+        .onSnapshot(async function(snapshot) {
             if (isFirstRun) {
                 isFirstRun = false
                 return
@@ -103,12 +102,11 @@ controller.setupDatabaseClassroomChange = function() {
                     model.updateClassroom(classroomChange)
                     view.showCurrentClassroom()
                 }
-                // if (docChange.type == 'removed') {
-                //     console.log('removed')
-                //     let classroomChange = transformDoc(docChange.doc)
-                //     model.updateClassroom(classroomChange)
-                //     view.showListClassrooms()
-                // }
+                if (docChange.type == 'removed') {
+                    await controller.loadClassroom()
+                    view.showComponents("personal")
+                    view.showListClassrooms()
+                }
             }
         })
 }
@@ -148,7 +146,7 @@ controller.deleteLesson = function(lessonId) {
         })
 }
 
-controller.editLesson = function(lessonName, elementId){
+controller.editLesson = function(lessonName, elementId) {
     let elementIndex = parseInt(elementId[elementId.length - 1]) - 1
     model.currentClassroom.lessons[elementIndex].lessonName = lessonName
     return firebase

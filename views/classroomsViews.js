@@ -17,6 +17,7 @@ view.showListClassrooms = function() {
             </div>`
         }
         classList.innerHTML = html
+        controller.setupDatabaseClassroomChange()
 
         for (let classroom of classrooms) {
             let classroomId = classroom.id
@@ -27,9 +28,9 @@ view.showListClassrooms = function() {
                 view.showComponents('classroom')
             }
 
-            deleteClassroom.onclick = function() {
+            deleteClassroom.onclick = async function() {
                 console.log('onclick')
-                controller.deleteClassroom(classroomId)
+                await controller.deleteClassroom(classroomId)
             }
 
         }
@@ -96,30 +97,30 @@ view.showCurrentClassroom = function() {
         document.getElementById('lessons').innerHTML = lessonsHTML
         let deleteLessonBtn = document.getElementById('delete-lesson-btn')
         let editLessonBtn = document.getElementById('edit-lesson-btn')
-        for (let i = 1; i < index; i++){
+        for (let i = 1; i < index; i++) {
 
             let editLesson = document.querySelector(`#lesson-${i} > .edit-lesson`)
-            editLesson.onclick = function(){
+            editLesson.onclick = function() {
                 let lessonName = document.querySelector(`#lesson-${i} > .lesson-name`)
                 let editLessonNameInput = document.getElementById('editLessonNameInput')
                 editLessonNameInput.value = lessonName.innerText
-                editLessonBtn.onclick = function(){
+                editLessonBtn.onclick = function() {
                     controller.editLesson(editLessonNameInput.value, lessonName.id)
                     $('#editClassModal').modal('hide')
                 }
             }
 
-            let deleteLesson =  document.querySelector(`#lesson-${i} > .delete-lesson`)
-            deleteLesson.onclick = function(){
+            let deleteLesson = document.querySelector(`#lesson-${i} > .delete-lesson`)
+            deleteLesson.onclick = function() {
                 let lesson = document.querySelector(`#lesson-${i}`)
-                deleteLessonBtn.onclick = function(){
+                deleteLessonBtn.onclick = function() {
                     controller.deleteLesson(lesson.id)
                     $('#deleteClassModal').modal('hide')
                 }
             }
         }
-        
-        
+
+
     }
 }
 
@@ -131,6 +132,6 @@ view.loadEditInfoClassroomForm = function(editInfoForm) {
     editInfoForm.timeEnd.value = decription.courseTime.end
 }
 
-function deleteLessonClickHandler(lessonId){
+function deleteLessonClickHandler(lessonId) {
     console.log(lessonId.innerHTML)
 }
