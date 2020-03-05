@@ -171,7 +171,7 @@ view.showComponents = async function(screenName) {
                     let deleteClassroom = document.getElementById(`delete${classroomId}`)
                     deleteClassroom.onclick = function() {
                         controller.deleteClassroom(classroomId)
-                        //controller.setupDatabaseClassroomChange()
+                            //controller.setupDatabaseClassroomChange()
                     }
                 }
 
@@ -468,13 +468,16 @@ view.showComponents = async function(screenName) {
                     let friendEmail = formAddConversation.friendEmail.value.trim().toLowerCase();
                     let currentEmail = firebase.auth().currentUser.email;
                     let friendEmailExists = await controller.validateEmailExists(friendEmail)
+                    console.log(title)
+                    console.log(friendEmail)
+                    console.log(friendEmailExists)
 
                     let validateResult = [
                         view.validate('title-error', [
                             title, 'Missing tittle'
                         ]),
 
-                        view.validate('friend-email-error', [
+                        view.validate('friend-email-error-conversation', [
                             friendEmail, 'Missing friendEmail',
                             friendEmailExists, 'Friend email do not exists',
                             friendEmail != currentEmail, `Please enter an other person's email `
@@ -499,6 +502,7 @@ view.showComponents = async function(screenName) {
                         formAddConversation.title.value = ""
                         formAddConversation.friendEmail.value = ""
                     }
+                    view.enable('form-add-conversation-btn')
 
                 }
 

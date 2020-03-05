@@ -18,7 +18,7 @@ controller.register = async function(registerInfo) {
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
         // await view.setText('register-success', 'An verification email has been sended to your email address!')
-        alert("Register Successfully:An verification email has been sended to your email address!")
+        await alert("Register Successfully:An verification email has been sended to your email address!")
 
 
         await firebase.auth().currentUser.updateProfile({
@@ -47,6 +47,7 @@ controller.logIn = async function(logInInfo) {
             throw new Error('User must verify email!')
         }
         $('body').css('padding-right', '0px')
+        location.reload();
 
     } catch (err) {
         view.setText('log-in-error', err.message)

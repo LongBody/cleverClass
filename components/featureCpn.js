@@ -190,8 +190,8 @@ components.chats = `
       </div>
     <div class="form-group">
       <input type="email " name="friendEmail" class="form-control" id="exampleInputPassword1" placeholder="Enter a Friend Email">
-      <div id="friend-email-error" class="message-error"></div>
-      <button type="submit" class="btn btn-primary id="form-add-conversation-btn" >ADD</button>
+      <div id="friend-email-error-conversation" class="message-error"></div>
+      <button type="submit" class="btn btn-primary mt-2" id="form-add-conversation-btn" >ADD</button>
   </form>
 
     </div>
