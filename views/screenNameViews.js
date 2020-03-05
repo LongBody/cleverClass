@@ -164,6 +164,17 @@ view.showComponents = async function(screenName) {
                 let addClass = document.getElementById('add-class')
                 addClass.onclick = linkClickHandler
 
+                //Xóa lớp học
+                let classrooms = model.classrooms
+                for (let classroom of classrooms) {
+                    let classroomId = classroom.id
+                    let deleteClassroom = document.getElementById(`delete${classroomId}`)
+                    deleteClassroom.onclick = function() {
+                        controller.deleteClassroom(classroomId)
+                        //controller.setupDatabaseClassroomChange()
+                    }
+                }
+
                 let fastChat = document.getElementById('fastChat')
                 fastChat.onclick = fastChatHandlerClick
 

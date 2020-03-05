@@ -7,11 +7,13 @@ view.showListClassrooms = function() {
         for (let classroom of classrooms) {
             let { decription, teacher, id: classroomId } = classroom
             let courseName = decription.courseName
-            html += `<div id="${classroomId}" class="class-item">
-            <div class="class-item-content">
-                ${courseName}
-                <p>Giáo viên: ${teacher}</p>
-            </div>
+            html += `
+            <div class="class-item">
+                <span id="delete${classroomId}" class="deleteClassroom close" style="cursor :pointer" aria-hidden="true">&times;</span>
+                <div id="${classroomId}" class="class-item-content">
+                    ${courseName}
+                    <p>Giáo viên: ${teacher}</p>
+                </div>
             </div>`
         }
         classList.innerHTML = html
@@ -19,14 +21,22 @@ view.showListClassrooms = function() {
         for (let classroom of classrooms) {
             let classroomId = classroom.id
             let classroomCard = document.getElementById(classroomId)
-            classroomCard.onclick = function() {
-                model.saveCurrentClassroom(classroom)
+            let deleteClassroom = document.getElementById(`delete${classroomId}`)
+            classroomCard.onclick = async function() {
+                await model.saveCurrentClassroom(classroom)
                 view.showComponents('classroom')
             }
+
+            deleteClassroom.onclick = function() {
+                console.log('onclick')
+                controller.deleteClassroom(classroomId)
+            }
+
         }
 
     }
 }
+
 view.showListClassroomsAsideLeft = function() {
     if (model.classrooms) {
         let html = ``
@@ -48,6 +58,7 @@ view.showListClassroomsAsideLeft = function() {
     }
 
 }
+
 view.showCurrentClassroom = function() {
 
     if (model.currentClassroom) {
@@ -111,6 +122,7 @@ view.showCurrentClassroom = function() {
         
     }
 }
+
 view.loadEditInfoClassroomForm = function(editInfoForm) {
     let decription = model.currentClassroom.decription
     editInfoForm.targetCourse.value = decription.courseTarget

@@ -13,6 +13,7 @@ controller.loadClassroom = async function() {
     if (classes.length > 0) {
         model.saveCurrentClassroom(classes[0])
     }
+    console.log('load classroom')
 }
 
 controller.addClassroom = function(classroom) {
@@ -21,6 +22,20 @@ controller.addClassroom = function(classroom) {
         .firestore()
         .collection('Classrooms')
         .add(classroom)
+}
+
+controller.deleteClassroom =  function(classroomId) {
+    return firebase
+        .firestore()
+        .collection('Classrooms')
+        .doc(classroomId)
+        .delete().then( async function() {
+            await controller.setupDatabaseClassroomRemove();
+            console.log("Document successfully deleted!");
+           
+        }).catch(function(error) {
+            console.error("Error removing document: ", error);
+        });
 }
 
 controller.updateInfoClassroom = function(decription) {
@@ -88,6 +103,12 @@ controller.setupDatabaseClassroomChange = function() {
                     model.updateClassroom(classroomChange)
                     view.showCurrentClassroom()
                 }
+                // if (docChange.type == 'removed') {
+                //     console.log('removed')
+                //     let classroomChange = transformDoc(docChange.doc)
+                //     model.updateClassroom(classroomChange)
+                //     view.showListClassrooms()
+                // }
             }
         })
 }
