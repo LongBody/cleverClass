@@ -2,7 +2,7 @@ async function listLesson() {
     var listLesson = document.getElementById("list-video")
     listLesson.innerHTML = ""
     let html;
-    var videos = await firebase.storage().ref('video/').listAll()
+    var videos = await firebase.storage().ref('videos/').listAll()
     let items = videos.items;
     for (let item of items) {
         let name = item.name
@@ -49,16 +49,16 @@ async function currentVideo() {
 
     let userName = firebase.auth().currentUser.providerData[0].displayName
     let photoURL = firebase.auth().currentUser.providerData[0].photoURL
-    var videos = await firebase.storage().ref('video/').listAll()
+    var videos = await firebase.storage().ref('videos/').listAll()
     let items = videos.items;
 
     var currentVideo = document.getElementById("currentVideo")
     currentVideo.innerHTML = ""
-    let number = Math.ceil(Math.random() * 5)
 
-    items[number].getDownloadURL().then(async function(url) {
 
-        let name = items[number].name
+    items[2].getDownloadURL().then(async function(url) {
+
+        let name = items[2].name
         html = `
                 <div >
                     <video controls autoplay id="video-watch" class="video-watching" src="${url}">

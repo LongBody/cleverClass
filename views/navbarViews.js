@@ -250,7 +250,7 @@ async function navbarEventForChats() {
 
 
     let html
-    let photo, UserAddress, UserBirthday
+    let photo, UserAddress, UserBirthday, email
     let nameUser
     let showNameSearch = document.getElementById("showNameSearch")
     showNameSearch.innerHTML = ""
@@ -261,6 +261,7 @@ async function navbarEventForChats() {
             if (nameInput === user.displayName) {
                 photo = user.photoURL
                 nameUser = user.displayName
+                email = user.email
                 UserAddress = user.address
                 if (UserAddress === undefined) {
                     UserAddress = "Don't have update their information"
@@ -275,7 +276,7 @@ async function navbarEventForChats() {
                     <div id="personal">
                     <div class="info-personal">
                     <img class="avatar-user-search" src="${photo}" >
-                     <span class="user-name-search">${nameUser}</span>
+                     <span class="user-name-search">${nameUser}</span>  <span class="ml-5">${email}</span>
                      <p class="information-user mt-3 ml-1"><i class="fas fa-home" style="font-size:25px"></i> <span class="card-show-info-user" >${UserBirthday}</span></p>
                      <p class="information-user ml-1" ><i class="fas fa-birthday-cake" style="font-size:25px"></i><span class="card-show-info-user" >${UserAddress}</span></p>
                     </div>
