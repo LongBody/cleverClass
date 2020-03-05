@@ -54,7 +54,7 @@ components.navbar = `
   <span id="displayName"></span>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="#" id="account-setting">Account</a>
-    <a class="dropdown-item" href="#">Setting</a>
+    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#uploadVideo">Upload Video</a>
     <div class="dropdown-divider"></div>
     <div class="logOut" id="log-out">
       <a class="dropdown-item" href="#" >Log Out <i class="fas fa-sign-out-alt"></i></a>
@@ -65,6 +65,31 @@ components.navbar = `
 </div>
       
     </div>
+
+
+
+
+    <div class="modal fade" id="uploadVideo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Upload Videos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="uploadVideo">
+        <input type="file" name="video">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 </nav>`
 
 components.loading = `
