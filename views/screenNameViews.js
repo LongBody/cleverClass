@@ -93,6 +93,7 @@ view.showComponents = async function(screenName) {
                         // The signed-in user info.
                         var user = result.user;
                         let uid = user.providerData[0].uid
+                        console.log(uid)
                         console.log(user.providerData[0].email)
                             // console.log(user.providerData[0])
                         $('body').removeClass('modal-open');
