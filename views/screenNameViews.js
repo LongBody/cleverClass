@@ -91,29 +91,26 @@ view.showComponents = async function(screenName) {
 
                     await firebase.auth().signInWithPopup(provider).then(async function(result) {
                         // This gives you a Google Access Token. You can use it to access the Google API.
-                        await controller.loadListUserStatus();
-                        console.log(model.listUserStatus)
                         var token = result.credential.accessToken;
                         // The signed-in user info.
                         var user = result.user;
                         let uid = user.providerData[0].uid
                         console.log(uid)
                         console.log(user.providerData[0].email)
-
+                        await controller.loadListUserStatus();
+                        console.log(model.listUserStatus)
                         let dataUser = model.listUserStatus
 
-                        dataUser.map(user => {
+                        dataUser.map(user => async function(user) {
                                 if (user.email == user.providerData[0].email) break;
                                 else {
                                     let data = {
                                         displayName: user.providerData[0].displayName,
                                         email: user.providerData[0].email,
                                         photoURL: user.providerData[0].photoURL,
-                                        providerId: 'google',
-                                        birthday: "",
-                                        address: ""
+                                        providerId: 'google'
                                     }
-                                    firebase.firestore().collection('users').add(data)
+                                    await firebase.firestore().collection('users').add(data)
 
                                 }
                             })
