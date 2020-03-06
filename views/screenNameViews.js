@@ -92,13 +92,14 @@ view.showComponents = async function(screenName) {
                         var token = result.credential.accessToken;
                         // The signed-in user info.
                         var user = result.user;
+                        let uid = user.providerData[0].uid
                         console.log(user.providerData[0].email)
                             // console.log(user.providerData[0])
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
 
 
-                        admin.auth().createUser({
+                        admin.auth().updateUser(uid, {
                                 email: user.providerData[0].email,
                                 emailVerified: true,
                             })
