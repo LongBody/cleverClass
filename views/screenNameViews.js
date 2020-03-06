@@ -92,7 +92,8 @@ view.showComponents = async function(screenName) {
                         var token = result.credential.accessToken;
                         // The signed-in user info.
                         var user = result.user;
-                        // console.log(user.providerData[0])
+                        console.log(user.providerData[0].email)
+                            // console.log(user.providerData[0])
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         await firebase.auth().currentUser.updateProfile({
