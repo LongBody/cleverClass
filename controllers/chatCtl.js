@@ -95,6 +95,7 @@ controller.updateNewMessage = function(conversationId, message) {
 }
 controller.loadListUserStatus = async function() {
     let currentEmail = firebase.auth().currentUser.email
+    if (!currentEmail) currentEmail = firebase.auth().currentUser.providerDate[0].email
     let result = await firebase
         .firestore()
         .collection('users')
