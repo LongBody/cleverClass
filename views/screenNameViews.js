@@ -91,18 +91,18 @@ view.showComponents = async function(screenName) {
                         // This gives you a Google Access Token. You can use it to access the Google API.
                         var token = result.credential.accessToken;
                         console.log(token)
-                        console.log(result.email)
+                        console.log(result)
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         await controller.setupStatus();
                         console.log(model.listUserStatus)
 
-                        let data = {
-                            displayName: result.displayName,
-                            email: result.email,
-                            photoURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png'
-                        }
-                        await firebase.firestore().collection('users').add(data)
+                        // let data = {
+                        //     displayName: result.displayName,
+                        //     email: result.email,
+                        //     photoURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png'
+                        // }
+                        // await firebase.firestore().collection('users').add(data)
 
 
 
