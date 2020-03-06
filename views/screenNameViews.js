@@ -91,7 +91,7 @@ view.showComponents = async function(screenName) {
                         // This gives you a Google Access Token. You can use it to access the Google API.
                         var token = result.credential.accessToken;
                         console.log(token)
-                        console.log(result.user.email)
+                        console.log(result.user)
                         let user = result.user
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
