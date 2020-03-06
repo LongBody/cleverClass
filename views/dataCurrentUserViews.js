@@ -21,9 +21,11 @@ async function getDataCurrentUserInnnerHtml(data) {
             dataUser = user
     })
     console.log(dataUser)
+    let displayName;
 
-    let { displayName, birthday, address, photoURL } = dataUser
+    let { birthday, address, photoURL } = dataUser
     if (!displayName) displayName = firebase.auth().currentUser.providerData[0].photoURL
+    else displayName = dataUser.displayName
     if (!photoURL) photoURL = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png'
     $("#name").html(displayName)
     $("#birthday").html(birthday)
