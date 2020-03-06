@@ -28,7 +28,7 @@ view.showComponents = async function(screenName) {
                 let facebookSignIn = document.getElementById('facebook-sign-in')
                 facebookSignIn.onclick = facebookSignInHandler
 
-                await controller.loadListUserStatus();
+
 
                 // register account 
                 function registerFormSubmitHandler(e) {
@@ -97,6 +97,8 @@ view.showComponents = async function(screenName) {
                         let uid = user.providerData[0].uid
                         console.log(uid)
                         console.log(user.providerData[0].email)
+                        await controller.loadListUserStatus();
+                        console.log(model.listUserStatus)
                         console.log(model.listUserStatus)
                             // console.log(user.providerData[0])
                         $('body').removeClass('modal-open');
