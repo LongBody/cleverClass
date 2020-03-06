@@ -98,23 +98,9 @@ view.showComponents = async function(screenName) {
                         console.log(uid)
                         console.log(user.providerData[0].email)
                         await controller.loadListUserStatus();
-                        console.log(model.listUserStatus)
-                        let dataUser = model.listUserStatus
 
-                        dataUser.map(user => async function(user) {
-                                if (user.email == user.providerData[0].email) break;
-                                else {
-                                    let data = {
-                                        displayName: user.providerData[0].displayName,
-                                        email: user.providerData[0].email,
-                                        photoURL: user.providerData[0].photoURL,
-                                        providerId: 'google'
-                                    }
-                                    await firebase.firestore().collection('users').add(data)
 
-                                }
-                            })
-                            // console.log(user.providerData[0])
+                        console.log(user.providerData[0])
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
 
