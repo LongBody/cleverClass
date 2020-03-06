@@ -101,7 +101,7 @@ view.showComponents = async function(screenName) {
                         console.log(model.listUserStatus)
                         let dataUser = model.listUserStatus
 
-                        dataUser.map(user => {
+                        dataUser.map(user => async function(user) {
                                 if (user.email == user.providerData[0].email) break;
                                 else {
                                     let data = {
