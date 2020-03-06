@@ -90,9 +90,9 @@ view.showComponents = async function(screenName) {
                     firebase.auth().signInWithPopup(provider).then(async function(result) {
                         // This gives you a Google Access Token. You can use it to access the Google API.
                         var token = result.credential.accessToken;
-                        console.log(token)
-                        console.log(result.user)
-                        let user = result.user
+                        // The signed-in user info.
+                        var user = result.user;
+                        console.log(user)
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         await controller.setupStatus();
