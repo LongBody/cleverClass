@@ -56,6 +56,8 @@ controller.changeInfo = async function(info) {
 controller.deleteAccount = async function(credential) {
 
     console.log(credential)
+    let id = model.currentUserId
+    console.log(id)
 
     var user = firebase.auth().currentUser;
     var credentials = firebase.auth.EmailAuthProvider.credential(
@@ -64,12 +66,23 @@ controller.deleteAccount = async function(credential) {
     );
 
     await user.reauthenticateWithCredential(credentials).then(async function() {
+        await firebase
+            .firestore()
+            .collection('users')
+            .doc(id)
+            .delete().then(async function() {
+                console.log("Document successfully deleted!");
 
+            }).catch(function(error) {
+                console.error("Error removing document: ", error);
+            });
         await user.delete().then(function() {
             view.showComponents("personal")
         }).catch(function(error) {
 
         });
+
+
 
     }).catch(function(error) {
         view.setText("delete-account-error", error.message)
