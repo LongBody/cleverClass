@@ -28,6 +28,8 @@ view.showComponents = async function(screenName) {
                 let facebookSignIn = document.getElementById('facebook-sign-in')
                 facebookSignIn.onclick = facebookSignInHandler
 
+                await controller.loadListUserStatus();
+
                 // register account 
                 function registerFormSubmitHandler(e) {
                     e.preventDefault() // chan su kien form submit mac dinh
@@ -85,9 +87,9 @@ view.showComponents = async function(screenName) {
                 }
 
                 // sign in with google 
-                function googleSignInHandler() {
+                async function googleSignInHandler() {
 
-                    firebase.auth().signInWithPopup(provider).then(async function(result) {
+                    await firebase.auth().signInWithPopup(provider).then(async function(result) {
                         // This gives you a Google Access Token. You can use it to access the Google API.
                         var token = result.credential.accessToken;
                         // The signed-in user info.
@@ -111,6 +113,8 @@ view.showComponents = async function(screenName) {
                             .catch(function(error) {
                                 console.log('Error creating new user:', error);
                             });
+
+                        console.log(model.listUserStatus)
 
 
                         // let data = {
