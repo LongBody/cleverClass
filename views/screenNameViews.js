@@ -96,9 +96,19 @@ view.showComponents = async function(screenName) {
                             // console.log(user.providerData[0])
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
-                        await firebase.auth().currentUser.updateProfile({
-                            email: user.providerData[0].email
-                        })
+
+
+                        admin.auth().createUser({
+                                email: user.providerData[0].email,
+                                emailVerified: true,
+                            })
+                            .then(function(userRecord) {
+                                // See the UserRecord reference doc for the contents of userRecord.
+                                console.log('Successfully created new user:', userRecord.uid);
+                            })
+                            .catch(function(error) {
+                                console.log('Error creating new user:', error);
+                            });
 
 
                         // let data = {
