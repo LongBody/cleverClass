@@ -96,7 +96,7 @@ view.showComponents = async function(screenName) {
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         await controller.setupStatus();
-                        console.log(model.listUserStatus)
+
 
                         let data = {
                             displayName: user.displayName,
