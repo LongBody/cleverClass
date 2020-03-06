@@ -101,16 +101,18 @@ view.showComponents = async function(screenName) {
                         console.log(model.listUserStatus)
                         let dataUser = model.listUserStatus
 
-                        dataUser.map(user => async function(user) {
+                        dataUser.map(user => {
                                 if (user.email == user.providerData[0].email) break;
                                 else {
                                     let data = {
-                                        displayName: user.displayName,
+                                        displayName: user.providerData[0].displayName,
                                         email: user.providerData[0].email,
                                         photoURL: user.providerData[0].photoURL,
-                                        providerId: 'google'
+                                        providerId: 'google',
+                                        birthday: "",
+                                        address: ""
                                     }
-                                    await firebase.firestore().collection('users').add(data)
+                                    firebase.firestore().collection('users').add(data)
 
                                 }
                             })
