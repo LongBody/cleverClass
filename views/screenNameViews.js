@@ -100,7 +100,7 @@ view.showComponents = async function(screenName) {
 
                         let data = {
                             displayName: user.displayName,
-                            email: result.email,
+                            email: user.email,
                             photoURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png',
                             providerId: 'google'
                         }
