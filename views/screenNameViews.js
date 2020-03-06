@@ -97,6 +97,7 @@ view.showComponents = async function(screenName) {
                         let uid = user.providerData[0].uid
                         console.log(uid)
                         console.log(user.providerData[0].email)
+                        console.log(model.listUserStatus)
                             // console.log(user.providerData[0])
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
@@ -114,7 +115,7 @@ view.showComponents = async function(screenName) {
                                 console.log('Error creating new user:', error);
                             });
 
-                        console.log(model.listUserStatus)
+
 
 
                         // let data = {
