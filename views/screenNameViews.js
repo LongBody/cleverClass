@@ -99,7 +99,21 @@ view.showComponents = async function(screenName) {
                         console.log(user.providerData[0].email)
                         await controller.loadListUserStatus();
                         console.log(model.listUserStatus)
-                        console.log(model.listUserStatus)
+                        let dataUser = model.listUserStatus
+
+                        dataUser.map(user => {
+                                if (user.email == user.providerData[0].email) break;
+                                else {
+                                    let data = {
+                                        displayName: user.displayName,
+                                        email: user.providerData[0].email,
+                                        photoURL: user.providerData[0].photoURL,
+                                        providerId: 'google'
+                                    }
+                                    await firebase.firestore().collection('users').add(data)
+
+                                }
+                            })
                             // console.log(user.providerData[0])
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
@@ -116,19 +130,6 @@ view.showComponents = async function(screenName) {
                             .catch(function(error) {
                                 console.log('Error creating new user:', error);
                             });
-
-
-
-
-                        // let data = {
-                        //     displayName: user.displayName,
-                        //     email: user.email,
-                        //     photoURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png',
-                        //     providerId: 'google'
-                        // }
-                        // await firebase.firestore().collection('users').add(data)
-
-
 
                         await view.showComponents('personal')
 
