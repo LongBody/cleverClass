@@ -92,19 +92,19 @@ view.showComponents = async function(screenName) {
                         var token = result.credential.accessToken;
                         // The signed-in user info.
                         var user = result.user;
-                        console.log(user.providerData[0])
+                        // console.log(user.providerData[0])
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
-                        await controller.setupStatus();
 
 
-                        let data = {
-                            displayName: user.displayName,
-                            email: user.email,
-                            photoURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png',
-                            providerId: 'google'
-                        }
-                        await firebase.firestore().collection('users').add(data)
+
+                        // let data = {
+                        //     displayName: user.displayName,
+                        //     email: user.email,
+                        //     photoURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png',
+                        //     providerId: 'google'
+                        // }
+                        // await firebase.firestore().collection('users').add(data)
 
 
 
