@@ -10,7 +10,9 @@ components.chats = `
     <div class="card shadow card-info" style="width: 18rem;">
     <h5 class="card-title text-center">My Profile</h5>
     <div class="avatar-social">
-    <img class="card-img-top" id="photoURL" src="" alt="Card image cap">
+    <div class="animated-background" style="width: 100px; border-radius: 50%;height: 100px;" id="avatar-loader">
+    </div>
+    <img class="card-img-top" id="photoURL" src="" alt="Card image cap" style="display:none">
     </div> 
     <div class="card-body"> 
       <hr/>
@@ -23,7 +25,16 @@ components.chats = `
 
      <div class="card shadow card-conversation" style="width: 18rem;">
      <div class="list-conversation" id="list-conversation">
+     <section>
+     <div class="animated-background" style="width: 100%;height: 25px;margin-top: 5px;border-radius: 20px">
+     </div>
 
+     <div class="animated-background" style="width: 100%;height: 25px;margin-top: 5px;border-radius: 20px">
+     </div>
+
+     <div class="animated-background" style="width: 100%;height: 25px;margin-top: 5px;border-radius: 20px">
+     </div>
+     </section>
      </div>  
       </div>
 
@@ -70,7 +81,183 @@ components.chats = `
      
    </div>
 
-   <div class="loader" id="loader"></div>
+   <div id="loader">
+
+   <section class="card shadow rounded" style="margin-bottom: 10px;">
+   <div style="display: flex;margin-bottom: 10px;margin-top: 10px;margin-left:10px;">
+       <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+       </div>
+
+       <div style="margin-left:7px">
+           <div class="animated-background" style="width: 200px;height: 25px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+           </div>
+           <div class="animated-background" style="width: 50px;height: 10px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+           </div>
+       </div>
+   </div>
+   <div style="display: flex;margin-bottom: 10px;">
+
+       <div style="margin-left:10px;width: 100%; margin-right: 15px;">
+           <div class="animated-background" style="width: 100%;height: 20px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+           </div>
+           <div class="animated-background" style="width: 100%;height: 200px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+           </div>
+       </div>
+   </div>
+   <div style="display: flex;margin-bottom: 10px;margin-left:10px">
+       <div class="animated-background" style="width: 55px;height: 30px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+       </div>
+       <div class="animated-background" style="width: 65px;height: 30px;margin-top: 5px;margin-left: 19px;border-radius: 20px">
+       </div>
+</section>
+
+<section class="card shadow rounded" style="margin-bottom: 10px;">
+   <div style="display: flex;margin-bottom: 10px;margin-top: 10px;margin-left:10px;">
+       <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+       </div>
+
+       <div style="margin-left:7px">
+           <div class="animated-background" style="width: 200px;height: 25px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+           </div>
+           <div class="animated-background" style="width: 50px;height: 10px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+           </div>
+       </div>
+   </div>
+   <div style="display: flex;margin-bottom: 10px;">
+
+       <div style="margin-left:10px;width: 100%; margin-right: 15px;">
+           <div class="animated-background" style="width: 100%;height: 20px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+           </div>
+           <div class="animated-background" style="width: 100%;height: 200px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+           </div>
+       </div>
+   </div>
+   <div style="display: flex;margin-bottom: 10px;margin-left:10px">
+       <div class="animated-background" style="width: 55px;height: 30px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+       </div>
+       <div class="animated-background" style="width: 65px;height: 30px;margin-top: 5px;margin-left: 19px;border-radius: 20px">
+       </div>
+</section>
+
+<section class="card shadow rounded" style="margin-bottom: 10px;">
+<div style="display: flex;margin-bottom: 10px;margin-top: 10px;margin-left:10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+
+    <div style="margin-left:7px">
+        <div class="animated-background" style="width: 200px;height: 25px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+        </div>
+        <div class="animated-background" style="width: 50px;height: 10px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+        </div>
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;">
+
+    <div style="margin-left:10px;width: 100%; margin-right: 15px;">
+        <div class="animated-background" style="width: 100%;height: 20px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+        </div>
+        <div class="animated-background" style="width: 100%;height: 200px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+        </div>
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;margin-left:10px">
+    <div class="animated-background" style="width: 55px;height: 30px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+    </div>
+    <div class="animated-background" style="width: 65px;height: 30px;margin-top: 5px;margin-left: 19px;border-radius: 20px">
+    </div>
+</section>
+
+<section class="card shadow rounded" style="margin-bottom: 10px;">
+<div style="display: flex;margin-bottom: 10px;margin-top: 10px;margin-left:10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+
+    <div style="margin-left:7px">
+        <div class="animated-background" style="width: 200px;height: 25px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+        </div>
+        <div class="animated-background" style="width: 50px;height: 10px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+        </div>
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;">
+
+    <div style="margin-left:10px;width: 100%; margin-right: 15px;">
+        <div class="animated-background" style="width: 100%;height: 20px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+        </div>
+        <div class="animated-background" style="width: 100%;height: 200px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+        </div>
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;margin-left:10px">
+    <div class="animated-background" style="width: 55px;height: 30px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+    </div>
+    <div class="animated-background" style="width: 65px;height: 30px;margin-top: 5px;margin-left: 19px;border-radius: 20px">
+    </div>
+</section>
+
+<section class="card shadow rounded" style="margin-bottom: 10px;">
+<div style="display: flex;margin-bottom: 10px;margin-top: 10px;margin-left:10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+
+    <div style="margin-left:7px">
+        <div class="animated-background" style="width: 200px;height: 25px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+        </div>
+        <div class="animated-background" style="width: 50px;height: 10px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+        </div>
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;">
+
+    <div style="margin-left:10px;width: 100%; margin-right: 15px;">
+        <div class="animated-background" style="width: 100%;height: 20px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+        </div>
+        <div class="animated-background" style="width: 100%;height: 200px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+        </div>
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;margin-left:10px">
+    <div class="animated-background" style="width: 55px;height: 30px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+    </div>
+    <div class="animated-background" style="width: 65px;height: 30px;margin-top: 5px;margin-left: 19px;border-radius: 20px">
+    </div>
+</section>
+
+<section class="card shadow rounded" style="margin-bottom: 10px;">
+<div style="display: flex;margin-bottom: 10px;margin-top: 10px;margin-left:10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+
+    <div style="margin-left:7px">
+        <div class="animated-background" style="width: 200px;height: 25px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+        </div>
+        <div class="animated-background" style="width: 50px;height: 10px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+        </div>
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;">
+
+    <div style="margin-left:10px;width: 100%; margin-right: 15px;">
+        <div class="animated-background" style="width: 100%;height: 20px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+        </div>
+        <div class="animated-background" style="width: 100%;height: 200px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+        </div>
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;margin-left:10px">
+    <div class="animated-background" style="width: 55px;height: 30px;margin-top: 5px;margin-left: 5px;border-radius: 20px">
+    </div>
+    <div class="animated-background" style="width: 65px;height: 30px;margin-top: 5px;margin-left: 19px;border-radius: 20px">
+    </div>
+</section>
+
+
+
+
+
+
+
+   </div>
 
 
    <div id="show-new-post">
@@ -85,22 +272,68 @@ components.chats = `
 
 </div>
 
-
-   
-   
-     
-     
-     
+  
      
      </div>
     </div>
 
-
-
     <div id="state-friend" class="state-friend card">
     <h6 class="contact">Contact Users</h6>
     <hr/>
-    <div class="user" id="list-user-status"></div>
+    <div class="user" id="list-user-status">
+    
+<div style="display: flex;margin-bottom: 10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+    <div class="animated-background" style="width: 200px;height: 30px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+    <div class="animated-background" style="width: 200px;height: 30px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+    </div>
+</div>
+
+<div style="display: flex;margin-bottom: 10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+    <div class="animated-background" style="width: 200px;height: 30px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+    <div class="animated-background" style="width: 200px;height: 30px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+    </div>
+</div>
+
+<div style="display: flex;margin-bottom: 10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+    <div class="animated-background" style="width: 200px;height: 30px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+    <div class="animated-background" style="width: 200px;height: 30px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+    <div class="animated-background" style="width: 200px;height: 30px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+    </div>
+</div>
+<div style="display: flex;margin-bottom: 10px;">
+    <div class="animated-background" style="width: 60px; border-radius: 50%;height: 50px;">
+    </div>
+    <div class="animated-background" style="width: 200px;height: 30px;margin-top: 10px;margin-left: 5px;border-radius: 20px">
+    </div>
+</div>
+    
+    </div>
  
    <button class="btn btn-primary message-btn" type="button" data-toggle="collapse" data-target="#collapseMessage" aria-expanded="false" aria-controls="collapseMessage">
    <i class="fab fa-facebook-messenger"></i> Messenger

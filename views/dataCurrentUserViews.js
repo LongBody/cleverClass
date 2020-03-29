@@ -27,5 +27,7 @@ async function getDataCurrentUserInnnerHtml(data) {
     $("#name").html(displayName)
     $("#birthday").html(birthday)
     $("#address").html(address)
+    $("#avatar-loader").css("display", "none")
+    $("#photoURL").css("display", "block")
     $("#photoURL").attr("src", photoURL)
 }
