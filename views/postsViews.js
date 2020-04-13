@@ -67,7 +67,8 @@ view.showListPosts = async function() {
 </div>
 <div class="card-body">
 <div class="${classNameContent}" >${content}</div>
-<img class="${classNameImg}" src="${image}">
+<a data-fslightbox="gallery1" href="${image}"> <img class="${classNameImg}"  src="${image}"> </a>
+
 
 <div class="mt-3">
 <hr/>
